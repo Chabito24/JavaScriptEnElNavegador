@@ -33,7 +33,7 @@ const heading2 = document.getElementById('heading');
 console.log(heading2); // ¿Qué diferencias hay con querySelector? Solo acepta ID y no usa #
 
 
-// === 4. Crear HTML desde JavaScript ===
+// === CREAR UNA VARIABLE DESDE JS ===
 
 // Creamos un nuevo enlace <a>
 const nuevoEnlace = document.createElement('a');
@@ -116,14 +116,14 @@ nombre.addEventListener('change', function() {
 
 nombre.addEventListener('input', leerTexto);
 email.addEventListener('input', leerTexto);
-mensaje.addEventListener('input', leerTexto);
+mensaje.addEventListener('input', leerTexto); // seleccionamos los id que requerimos
 
 function leerTexto(e) {
     console.log(e.target.value);
-}
+} // imprime en consola cada dato incorporado en el formulario de nombre a mensaje
 
 btnEnviar.addEventListener('click', function() {
     console.clear();
     console.log('se envia formulario')
-})
+}) // limpia la consola e imprime el mensaje de envío
 
