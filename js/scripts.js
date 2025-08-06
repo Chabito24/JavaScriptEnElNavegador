@@ -132,11 +132,11 @@ formulario.addEventListener('submit', function(e){
     const {nombre, email, mensaje} = datos;
 
     if(nombre ==='' || email ==='' || mensaje ===''){
-        mostrarError('Todos los campos son obligatorios'); 
+        mostrarAlerta('Todos los campos son obligatorios', true); //se cambia mostrarError por mostrar<alerta
         return;
     }
 
-    mostrarEnvio('Formulario enviado');  
+    mostrarAlerta('Formulario enviado');  //se cambia mostrarEnvio por mostrarAlerta
 });
 
 
@@ -154,7 +154,8 @@ function leerTexto(e) {
 
 // === 5. FUNCIONES AUXILIARES ===
 
-function mostrarError(mensaje) {
+
+/*function mostrarError(mensaje) {
     const error = document.createElement('p');
     error.textContent = mensaje;
     error.classList.add('error');
@@ -177,4 +178,22 @@ function mostrarEnvio(mensaje) {
     setTimeout(()=>{
         correcto.remove();
     }, 3000);
+} */ // aqui este codigo se reemplaza por el siguiente lo reducims y lo refactorizamos
+
+function mostrarAlerta(mensaje, error = null) {
+    const alerta = document.createElement('p');
+    alerta.textContent = mensaje;
+
+    if(error) {
+        alerta.classList.add('error');
+    }else {
+        alerta.classList.add('correcto');
+    }
+
+    formulario.appendChild(alerta);
+
+    setTimeout(()=>{
+        alerta.remove();
+    }, 3000);
+     
 }
