@@ -95,6 +95,11 @@ btnEnviar.addEventListener('click', function(e) {//e puede ser cualquier nombre,
 
 // === EVENTOS DE LOS INPUTS Y TEXTAREA (149) ===
 
+const datos = { 
+    nombre: '',
+    email: '',
+    mensaje: ' '
+} // creamos un objeto con una variable llamada datos con los datos del formulario
 
 const nombre = document.querySelector('#nombre');// Seleccionamos el input con el ID "nombre"
 const email = document.querySelector('#email');// Seleccionamos el input con el ID "email"
@@ -114,12 +119,16 @@ nombre.addEventListener('change', function() {
 
 //Cambio por menos lineas de codigo
 
+
 nombre.addEventListener('input', leerTexto);
 email.addEventListener('input', leerTexto);
 mensaje.addEventListener('input', leerTexto); // seleccionamos los id que requerimos
 
 function leerTexto(e) {
-    console.log(e.target.value);
+    //console.log(e.target.value);
+    datos[e.target.id] = e.target.value; // asigna los valores de los campos en el evento, toma en cuenta el id 
+    // console.log(e.target);
+    console.log(datos); // imprime los datos con el valor del id.
 } // imprime en consola cada dato incorporado en el formulario de nombre a mensaje
 
 btnEnviar.addEventListener('click', function() {
